@@ -1,0 +1,12 @@
+.grid-item .textField {
+  position: relative;
+
+  height: 30px; /* Переопределяем высоту */
+  width: 200px;   /* Переопределяем ширину */
+
+  padding: 13px;
+  background-color: white;
+  border: thin solid darkgray;
+  border-radius: 4px;
+
+}

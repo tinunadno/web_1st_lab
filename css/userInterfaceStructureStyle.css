@@ -1,0 +1,32 @@
+.middle .userInterfacePanel {
+  display: flex;
+  height: 100%;
+}
+
+.left {
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+}
+
+.userInput {
+  flex: 1;
+  background-color: white;
+  border-right: 1px solid darkgray;
+  border-bottom: 1px solid darkgray;
+}
+
+.userInputHistory {
+  flex: 1;
+  background-color: lightgreen;
+  border-right: 1px solid darkgray;
+}
+
+.graphicSpot {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 70%; /* Ширина элемента graphicSpot */
+  position: relative;
+}
