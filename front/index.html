@@ -13,8 +13,13 @@
   <link rel="stylesheet" href="css/textFieldStyle.css"> <!-- Подключение CSS файла -->
   <link rel="stylesheet" href="css/graphicStyle.css"> <!-- Подключение CSS файла -->
   <link rel="stylesheet" href="css/graphicPlotStyle.css"> <!-- Подключение CSS файла -->
+  <link rel="stylesheet" href="css/tableStyle.css"> <!-- Подключение CSS файла -->
+  <link rel="stylesheet" href="css/buttonStyle.css"> <!-- Подключение CSS файла -->
+  <script src="js/eventHandler.js"></script>
+  <script src="js/serverInteraction.js"></script>
+  <script src="js/serverResponseProcessor.js"></script>
 </head>
-<body>
+<body class="body">
 <header class="header">Перминов Юра Константинович P3231 Вариант №664</header>
 <div class="middle">
   <div class="userInterfacePanel">
@@ -24,7 +29,7 @@
         <div class='grid-container'>
           <div class="grid-item">X:</div>
           <div class="grid-item">
-            <select name="X" class="select">
+            <select class="select" id="user-input-selectBox">
             <option value="-5">-5</option>
             <option value="-4" >-4</option>
             <option value="-3">-3</option>
@@ -38,25 +43,44 @@
           </div>
           <div class="grid-item">Y:</div>
           <div class="grid-item">
-            <input class="textField">
-            </input>
+            <input class="textField" id="user-input-textField">
           </div>
-          <div class="grid-item">Radius:</div>
+          <div class="grid-item">radius:</div>
           <div class="grid-item">
-            <input type="radio" id="choice1" value="1" />
-            <label for="choice1">1</label>
-            <input type="radio" id="choice2" value="1.5" />
-            <label for="choice2">1.5</label>
-            <input type="radio" id="choice3" value="2" />
-            <label for="choice3">2</label>
-            <input type="radio" id="choice4" value="2.5" />
-            <label for="choice4">2.5</label>
-            <input type="radio" id="choice5" value="3" />
-            <label for="choice5">3</label>
+            <form id="radioButtonForm">
+              <input type="radio" name="RBUserInput" id="choice1" value="1" />
+              <label for="choice1">1</label>
+              <input type="radio" name="RBUserInput" id="choice2" value="1.5"/>
+              <label for="choice2">1.5</label>
+              <input type="radio" name="RBUserInput" id="choice3" value="2"/>
+              <label for="choice3">2</label>
+              <input type="radio" name="RBUserInput" id="choice4" value="2.5"/>
+              <label for="choice4">2.5</label>
+              <input type="radio" name="RBUserInput" id="choice5" value="3"/>
+              <label for="choice5">3</label>
+            </form>
           </div>
+          <button class="grid-item button"  id="responseButton">get server response</button>
+          <div class="grid-item" id="result"></div>
         </div>
       </div>
-      <div class="userInputHistory">here suppose to be user story</div>
+      <div class="userInputHistory">
+
+        <table class="table", id="userHistoryTable">
+          <thead id="tableHeaders">
+          <tr>
+            <th class="tableHeader">№</th>
+            <th class="tableHeader">X</th>
+            <th class="tableHeader">Y</th>
+            <th class="tableHeader">R</th>
+            <th class="tableHeader">response</th>
+          </tr>
+          </thead>
+          <tbody></tbody>
+
+        </table>
+
+      </div>
     </div>
     <div class="graphicSpot">
       <div class="graphic">
@@ -94,6 +118,7 @@
           <div class="radius-Horizontal-Point" style="--x-h-position: 75%; --y-h-position: 50%"></div>
           <div class="radius-Label" style="--x-label-position: 75%; --y-label-position: 50%; --x-displacement: 5px;
            --y-displacement: 5px">R/2</div>
+          <div class="point" id="point"></div>
         </div>
       </div>
     </div>
