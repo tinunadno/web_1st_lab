@@ -5,6 +5,8 @@
   top: 50px;
   left: 50px;
   margin-top: -100%; /* Убираем отступы */
+  min-height: 300px;
+  min-width: 300px;
 }
 
 .radius-Vertical-Point {
@@ -61,4 +63,14 @@
   left: calc(50% + 2px);
   background-color: #3399fe;
   clip-path: polygon(0% 0%, 100% 0%, 100% 0%, 0% 100%, 0% 100%);
+}
+.graphicPlotContainer .point{
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background-color: lightcoral;
+  top: calc(50% - 5px);
+  left: calc(50% - 3px);
+  border-radius: 4px;
+  border: 2px solid red; /* Граница ячеек */
 }
