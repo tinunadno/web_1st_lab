@@ -1,0 +1,24 @@
+.userInputHistory .table {
+  position: relative;
+  width: 100%; /* Таблица занимает всю ширину контейнера */
+  border-collapse: collapse; /* Убираем промежутки между ячейками */
+}
+.tableHeader{
+  border: 1px solid darkgrey; /* Граница ячеек */
+  text-align: center; /* Выравнивание текста по центру */
+  padding: 10px; /* Отступы внутри ячеек */
+  height: 10px;
+  background-color: #dbdbdb;
+}
+.th {
+  border: 1px solid black; /* Граница ячеек */
+  text-align: center; /* Выравнивание текста по центру */
+  padding: 10px; /* Отступы внутри ячеек */
+  height: 10px;
+}
+.col_0{
+  background-color: #ffbfbf;
+}
+.col_1{
+  background-color: #bfffca;
+}
