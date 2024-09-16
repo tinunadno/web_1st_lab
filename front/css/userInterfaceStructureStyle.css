@@ -14,12 +14,17 @@
   background-color: white;
   border-right: 1px solid darkgray;
   border-bottom: 1px solid darkgray;
+  overflow-y: auto;
+  overflow-x: auto;
+
 }
 
 .userInputHistory {
   flex: 1;
-  background-color: lightgreen;
+  background-color: white;
   border-right: 1px solid darkgray;
+  overflow-y: auto;
+  overflow-x: auto;
 }
 
 .graphicSpot {
@@ -29,4 +34,6 @@
   height: 100%;
   width: 70%; /* Ширина элемента graphicSpot */
   position: relative;
+  overflow-y: auto;
+  overflow-x: auto;
 }
