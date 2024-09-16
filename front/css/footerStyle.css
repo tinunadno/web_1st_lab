@@ -1,5 +1,11 @@
 footer{
+  flex: 1;
+  flex-direction: row;
   height: 5vh;
   margin: 0;
   background-color: #2a2a2a;
+  text-align: center;
+  color: #dbdbdb;
+  font-size: 40px;
+  overflow-wrap: break-word;
 }
