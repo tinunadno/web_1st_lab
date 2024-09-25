@@ -3,6 +3,13 @@ function insertUserHistory(userHistory){
   for(let i=0;i<temp.length;i++){
     temp[i]=temp[i].substring(temp[i].indexOf(":")+1, temp[i].length).split(",");
   }
+  console.log(getToken())
+  if (getToken() == "NEW"){
+    setToken(temp[0][0])
+    temp.splice(0, 1);
+  }
+  console.log(getToken())
+  console.log(temp)
   insertHistoryIntoTable(temp)
 }
 function insertHistoryIntoTable(history){
@@ -16,7 +23,7 @@ function insertHistoryIntoTable(history){
       var cell=row.insertCell(j)
       cell.innerHTML=history[j][i];
       if(j==history.length-1){
-        if(history[j][i]=="0")
+        if(history[j][i]=="false")
           cell.classList.add("th", "col_0")
         else
           cell.classList.add("th", "col_1")
@@ -29,9 +36,8 @@ function insertHistoryIntoTable(history){
     cell.classList.add("tableHeader")
   }
   const resultOutput =document.getElementById("result");
-  var sr=history[3][history[3].length-1]
-  console.log(sr)
-  if(sr=="0"){
+  var sr=history[3][0]
+  if(sr=="false"){
     resultOutput.textContent="your point doesn't belongs to function"
   }else{
     resultOutput.textContent="your point belongs to function"
