@@ -9,3 +9,15 @@
   align-self: center;
   border: 1px solid darkgrey;
 }
+
+.button:hover{
+  position: relative;
+
+  left: 28%;
+  width: 105px;
+  height: 60px;
+  border-radius: 15px;
+  background-color: #6a93d1;
+  align-self: center;
+  border: 1px solid darkgrey;
+}
