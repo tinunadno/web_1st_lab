@@ -1,0 +1,5 @@
+input[type="radio"]{
+    background-color: #6a93d1; /* Fill color when checked */
+    border-color: #0056b3; /* Darker border color when checked */
+
+}
