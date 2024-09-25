@@ -11,12 +11,8 @@ public class UserStoryStorage {
         tokenGenerator=new TokenGenerator();
     }
 
-    public void append(String token, String x, String y, String r){
-        if(usersStoryHashMap.containsKey(token)){
-            usersStoryHashMap.get(token).addData(x, y, r);
-        }else{
-            throw new NullPointerException();
-        }
+    public void append(String x, String y, String r, String token) throws NullPointerException{
+        usersStoryHashMap.get(token).addData(x, y, r);
     }
 
     public String addUser(String x, String y, String r){
@@ -26,11 +22,7 @@ public class UserStoryStorage {
         return token;
     }
 
-    public String getUserStory(String token){
-        if(usersStoryHashMap.containsKey(token)){
-            return usersStoryHashMap.get(token).toString();
-        }else{
-            throw new NullPointerException();
-        }
+    public String getUserStory(String token) throws NullPointerException{
+        return usersStoryHashMap.get(token).getData();
     }
 }
