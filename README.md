@@ -1,3 +1,1 @@
-
-   ![Описание варианта]
-(https://raw.githubusercontent.com/tinunadno/web_1st_lab/master/content/description.png)
+![Описание варианта](https://github.com/tinunadno/web_1st_lab/blob/master/content/description.png?raw=true)
