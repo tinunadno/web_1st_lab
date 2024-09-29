@@ -35,16 +35,25 @@ public class RequestProcessor {
     }
 
     public String generateResponseForNewUser(String[] request){
-        String token=userStoryStorage.addUser(request[0], request[1], request[2]);
-        String response = "TOKEN:"+token+"\n";
-        response+=userStoryStorage.getUserStory(token);
-        return response;
+        if(!request[0].equals("EXIT")) {
+            String token = userStoryStorage.addUser(request[0], request[1], request[2]);
+            String response = "TOKEN:" + token + "\n";
+            response += userStoryStorage.getUserStory(token);
+            return response;
+        }else{
+            return "exited";
+        }
     }
 
     public String generateResponseForOldUser(String[] request) throws NullPointerException{
-        userStoryStorage.append(request[0], request[1], request[2], request[3]);
-        String response=userStoryStorage.getUserStory(request[3]);
-        return response;
+        if(request[0].equals("EXIT")){
+            userStoryStorage.removeUser(request[3]);
+            return "removed user";
+        }else {
+            userStoryStorage.append(request[0], request[1], request[2], request[3]);
+            String response = userStoryStorage.getUserStory(request[3]);
+            return response;
+        }
     }
 
 }
