@@ -11,9 +11,24 @@ document.addEventListener('DOMContentLoaded', function() {
 
   const resultOutput =document.getElementById("result");
 
+  window.addEventListener("close", function (){
+    sendRequest("EXIT", "EXIT", "EXIT", false);
+  });
+
+
+// Save the string when the page loads
+  window.addEventListener('load', function() {
+
+    // Retrieve the string when the page loads
+    lastResponse = sessionStorage.getItem("lastResponse");
+    token=sessionStorage.getItem("token");
+    insertUserHistory(lastResponse);
+  });
+
   getResultButton.addEventListener("click", function () {
     //sendRequest(selectElement.value, userInputTextField.value, rbSelection);
-    //resultTest.textContent=`X: ${selectElement.value}`+`Y: ${userInputTextField.value}`+`R: ${rbSelection}`;
+  //resultTest.textContent=`X: ${selectElement.value}`+`Y: ${userInputTextField.value}`+`R: ${rbSelection}`;
+
     const textFieldValue = userInputTextField.value;
     if(isNaN(parseInt(textFieldValue))){
       resultOutput.textContent="y must be an Integer";
@@ -26,7 +41,7 @@ document.addEventListener('DOMContentLoaded', function() {
         resultOutput.style.color='red';
       }else{
         if (rbSelection != 0) {
-          sendRequest(selectElement.value, userInputTextField.value, rbSelection);
+          sendRequest(selectElement.value, userInputTextField.value, rbSelection, true);
           resultOutput.style.color = 'black';
         } else {
           resultOutput.textContent = "chose r size, please";
