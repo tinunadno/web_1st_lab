@@ -4,8 +4,9 @@ function insertUserHistory(userHistory){
     temp[i]=temp[i].substring(temp[i].indexOf(":")+1, temp[i].length).split(",");
   }
   console.log(getToken())
-  if (getToken() == "NEW"){
+  if (getToken() == undefined){
     setToken(temp[0][0])
+    sessionStorage.setItem("token", temp[0][0]);
     temp.splice(0, 1);
   }
   console.log(getToken())
