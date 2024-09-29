@@ -25,4 +25,7 @@ public class UserStoryStorage {
     public String getUserStory(String token) throws NullPointerException{
         return usersStoryHashMap.get(token).getData();
     }
+    public void removeUser(String token){
+        usersStoryHashMap.remove(token);
+    }
 }
