@@ -9,7 +9,6 @@ public class Main {
     private static RequestProcessor requestProcessor=new RequestProcessor();
     public static String serverStartTime=Logger.getCurrentDate();
     public static void main(String[] args) {
-        System.out.println(serverStartTime);
         FCGIInterface fcgiInterface=new FCGIInterface();
         while(fcgiInterface.FCGIaccept() >= 0) {
             try {
