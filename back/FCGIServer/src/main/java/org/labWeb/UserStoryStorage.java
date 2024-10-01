@@ -3,8 +3,8 @@ package org.labWeb;
 import java.util.HashMap;
 
 public class UserStoryStorage {
-    private HashMap<String, SingleUserStory> usersStoryHashMap;
-    private TokenGenerator tokenGenerator;
+    private final HashMap<String, SingleUserStory> usersStoryHashMap;
+    private final TokenGenerator tokenGenerator;
 
     public UserStoryStorage(){
         usersStoryHashMap=new HashMap<>();

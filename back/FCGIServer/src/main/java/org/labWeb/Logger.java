@@ -22,7 +22,7 @@ public class Logger {
         PrintStream ps = new PrintStream(baos);
         e.printStackTrace(ps);
         ps.close();
-        writeLogs( baos.toString()+" "+getCurrentDate());
+        writeLogs( baos+" "+getCurrentDate());
     }
     public static String getCurrentDate(){
         return  new SimpleDateFormat("dd.MM.yyyy HH:mm:ss").format(Calendar.getInstance().getTime());

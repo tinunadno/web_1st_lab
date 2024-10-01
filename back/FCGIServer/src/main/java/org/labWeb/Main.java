@@ -5,14 +5,14 @@ import com.fastcgi.FCGIInterface;
 import java.io.IOException;
 
 public class Main {
-    private static ResponsePrinter responsePrinter=new ResponsePrinter();
-    private static RequestProcessor requestProcessor=new RequestProcessor();
+    private static final ResponsePrinter responsePrinter=new ResponsePrinter();
+    private static final RequestProcessor requestProcessor=new RequestProcessor();
     public static String serverStartTime=Logger.getCurrentDate();
     public static void main(String[] args) {
         FCGIInterface fcgiInterface=new FCGIInterface();
         while(fcgiInterface.FCGIaccept() >= 0) {
             try {
-                String stringRequestBody=requestProcessor.readRequestBody(fcgiInterface);
+                String stringRequestBody=requestProcessor.readRequestBody();
                 String[] requestBody=requestProcessor.parseRequest(stringRequestBody);
                 if(requestBody[3].equals("NEW")) {
                     try {
@@ -30,7 +30,7 @@ public class Main {
                     }
                 }
             }catch (IOException e){
-
+                Logger.logException(e);
             }
         }
     }

@@ -8,7 +8,7 @@ public class SingleUserStory {
     private String requestTimeStory;
     private String serverStartStory;
     private String responseStory;
-    private PointProcessor pointProcessor;
+    private final PointProcessor pointProcessor;
 
     public SingleUserStory(String X, String Y, String R) {
         pointProcessor = new PointProcessor();
@@ -30,12 +30,11 @@ public class SingleUserStory {
     }
 
     public String getData() {
-        String ret = xStory.substring(0, xStory.length() - 1) +
+        return xStory.substring(0, xStory.length() - 1) +
                 "\n" + yStory.substring(0, yStory.length() - 1) +
                 "\n" + rStory.substring(0, rStory.length() - 1) +
                 "\n" + requestTimeStory.substring(0, requestTimeStory.length() - 1) +
                 "\n" + serverStartStory.substring(0, serverStartStory.length() - 1) +
                 "\n" + responseStory.substring(0, responseStory.length() - 1);
-        return ret;
     }
 }

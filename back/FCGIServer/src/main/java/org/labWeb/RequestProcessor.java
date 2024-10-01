@@ -5,20 +5,16 @@ import com.fastcgi.FCGIInterface;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.charset.StandardCharsets;
-import java.text.AttributedString;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
 
 public class RequestProcessor {
-    private UserStoryStorage userStoryStorage = new UserStoryStorage();
-    public String readRequestBody(FCGIInterface fcgiInterface) throws IOException {
+    private final UserStoryStorage userStoryStorage = new UserStoryStorage();
+    public String readRequestBody() throws IOException {
         // Получаем длину содержимого из заголовков
-        fcgiInterface.request.inStream.fill();
-        var contentLength = fcgiInterface.request.inStream.available();
+        FCGIInterface.request.inStream.fill();
+        var contentLength = FCGIInterface.request.inStream.available();
         var buffer = ByteBuffer.allocate(contentLength);
         var readBytes =
-                fcgiInterface.request.inStream.read(buffer.array(), 0,
+                FCGIInterface.request.inStream.read(buffer.array(), 0,
                         contentLength);
         var requestBodyRaw = new byte[readBytes];
         buffer.get(requestBodyRaw);
@@ -51,8 +47,7 @@ public class RequestProcessor {
             return "removed user";
         }else {
             userStoryStorage.append(request[0], request[1], request[2], request[3]);
-            String response = userStoryStorage.getUserStory(request[3]);
-            return response;
+            return userStoryStorage.getUserStory(request[3]);
         }
     }
 

@@ -1,4 +1,4 @@
-var rbSelection=0;
+let rbSelection=0;
 document.addEventListener('DOMContentLoaded', function() {
   //select box variable
   const selectElement = document.getElementById("user-input-selectBox");
@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', function() {
         resultOutput.textContent="y must be in [-3; 3]";
         resultOutput.style.color='red';
       }else{
-        if (rbSelection != 0) {
+        if (rbSelection !== 0) {
           sendRequest(selectElement.value, userInputTextField.value, rbSelection, true);
           resultOutput.style.color = 'black';
         } else {

@@ -1,17 +1,17 @@
-var req;
-var token;
-var lastResponse;
+let req;
+let token;
+let lastResponse;
 function sendRequest(xParam, yParam, rParam, needProcess) {
   console.log("ama here");
   req = null;
-  var url="http://192.168.10.80:17936/fcgi-bin/server-1.0-jar-with-dependencies.jar"
+  let url="http://192.168.10.80:17936/fcgi-bin/server-1.0-jar-with-dependencies.jar"
   try {
     req = new XMLHttpRequest();
   } catch (e){}
   if (req) {
-    let body="";
+    let body;
     req.open("POST", url, true);
-    if(token==undefined){
+    if(token===undefined){
       body=`X:${xParam}\nY:${yParam}\nR:${rParam}\nTOKEN:NEW`;
     }else {
       body = `X:${xParam}\nY:${yParam}\nR:${rParam}\nTOKEN:${token}`;
@@ -30,10 +30,10 @@ function sendRequest(xParam, yParam, rParam, needProcess) {
 function acceptResponse(needProcess){
     try { // Важно!
       // только при состоянии "complete"
-      if (req.readyState == 4) {
+      if (req.readyState === 4) {
         // для статуса "OK"
-        if (req.status == 200) {
-          var response=req.response;
+        if (req.status === 200) {
+          let response=req.response;
           lastResponse=response;
           sessionStorage.setItem("lastResponse", lastResponse);
           console.log(response);
